@@ -1,2 +1,631 @@
+// <!--GAMFC-->version base on commit 841ed4e9ff121dde0ed6a56ae800c2e6c4f66056, time is 2024-04-16 18:02:37 UTC<!--GAMFC-END-->.
+// @ts-ignore
+import { connect } from 'cloudflare:sockets';
 
-import{A as j,D as ne,b3 as re,b as X,y as se,u as B,i as e,f as t,ai as E,S as L,t as f,z as w,b4 as ie,c as W,d as Z,B as D,F as A,b5 as ce,r as J,b6 as $,a6 as oe,g as v,ag as N,b7 as de,b8 as ue,b9 as ge,ba as be,bb as he,bc as pe,bd as ve,be as fe,bf as me,bg as xe,bh as _e,bi as $e,bj as O,bk as ke,bl as Ce,b2 as ye,k as Se,bm as we,bn as Ee,bo as z,bp as Ie,bq as H,br as De,bs as Ae,bt as Le,bu as Te,bv as Pe,v as K,h as Ne,bw as Fe}from"./index-DWMGWNy8.js";const[Y,Be]=j(""),U=ne(()=>Y().includes("sing-box")),Ue=()=>{re().then(Be)};var je=f('<div class="flex flex-col p-4">'),Re=f('<div class="flex flex-col"><form class="flex gap-2 sm:flex-row"><input type=search name=name class="input input-bordered min-w-0 flex-1"placeholder=google.com><div class="flex items-center gap-2"><select name=type class="select select-bordered"><option>A</option><option>AAAA</option><option>MX'),Ve=f("<div class=py-2>"),Qe=f('<form class="grid grid-cols-3 gap-2 sm:grid-cols-5">'),Me=f('<div class="grid grid-cols-2 gap-2 sm:grid-cols-4"><div class=form-control><label for=enable-allow-lan class="label gap-2"><span class=label-text></span></label><input id=enable-allow-lan type=checkbox class=toggle></div><div class=form-control><label for=enable-tun-device class="label gap-2"><span class=label-text></span></label><input id=enable-tun-device type=checkbox class=toggle></div><div class=form-control><label for=tun-ip-stack class="label gap-2"><span class=label-text></span></label><select id=tun-ip-stack class="select select-bordered flex-1"><option>Mixed</option><option>gVisor</option><option>System</option><option>LWIP</option></select></div><div class=form-control><label for=device-name class="label gap-2"><span class=label-text></span></label><input id=device-name class="input input-bordered min-w-0"></div><div class=form-control><label for=interface-name class="label gap-2"><span class=label-text></span></label><input id=interface-name class="input input-bordered min-w-0">'),qe=f('<div class="flex flex-col gap-4"><select class="select select-bordered"></select><div class="grid grid-cols-2 gap-2 sm:grid-cols-3">'),F=f("<option>"),Ge=f('<div class=form-control><label class=label><span class=label-text></span></label><input type=number class="input input-bordered">'),Oe=f('<div class="flex flex-col gap-2"><div class="flex flex-col"><select class="select select-bordered"></select></div><div class="flex flex-col"><select class="select select-bordered">'),ze=f('<div class="grid grid-cols-1 gap-4 sm:grid-cols-2"><div class="flex flex-col gap-2"><div class="flex flex-col items-center"><input type=checkbox class=toggle></div><div class="flex flex-col"><select class="select select-bordered"></select></div><div class="flex flex-col"><div class="py-2 text-center text-lg font-semibold">&nbsp;</div></div></div><div class="flex flex-col gap-2"><div class="flex flex-col items-center"><input type=checkbox class=toggle>'),He=f('<span class="absolute -right-1 -top-1 flex h-3 w-3"><span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-info opacity-75"></span><span class="inline-flex h-3 w-3 rounded-full bg-info">'),Xe=f('<div class="grid grid-cols-2 gap-4"><kbd class=kbd></kbd><div class=relative><kbd class="kbd w-full">'),We=f('<div class="mx-auto flex max-w-screen-md flex-col gap-4">');const Ze=w.object({name:w.string(),type:w.string()}),Je=()=>{const[l]=B(),m=ie(),{form:c,isSubmitting:x}=W({extend:K({schema:Ze}),onSubmit:n=>m.get("dns/query",{searchParams:{name:n.name,type:n.type}}).json().then(({Answer:g})=>d((g==null?void 0:g.map(({data:a})=>a))||[])).catch(g=>Ne.error(g.message))}),[k,d]=j([]);return(()=>{var n=Re(),g=n.firstChild,a=g.firstChild,C=a.nextSibling;return C.firstChild,Z(c,g,()=>c),e(C,t(D,{type:"submit",class:"btn-primary",get loading(){return x()},get children(){return l("dnsQuery")}}),null),e(n,t(L,{get when(){return k().length>0},get children(){var _=je();return e(_,t(A,{get each(){return k()},children:s=>(()=>{var i=Ve();return e(i,s),i})()})),_}}),null),n})()},Ke=w.object({port:w.number(),"socks-port":w.number(),"redir-port":w.number(),"tproxy-port":w.number(),"mixed-port":w.number()}),Ye=()=>{const[l]=B(),m=[{label:()=>l("port",{name:"Mixed"}),key:"mixed-port",onChange:a=>void $("mixed-port",Number(a.target.value),n)},{label:()=>l("port",{name:"HTTP"}),key:"port",onChange:a=>void $("port",Number(a.target.value),n)},{label:()=>l("port",{name:"Socks"}),key:"socks-port",onChange:a=>void $("socks-port",Number(a.target.value),n)},{label:()=>l("port",{name:"Redir"}),key:"redir-port",onChange:a=>void $("redir-port",Number(a.target.value),n)},{label:()=>l("port",{name:"TProxy"}),key:"tproxy-port",onChange:a=>void $("tproxy-port",Number(a.target.value),n)}],{form:c,setInitialValues:x,reset:k}=W({extend:K({schema:Ke})}),[d,{refetch:n}]=ce(Fe);J(()=>{const a=d();a&&(x(a),k())});const g=()=>{var a;return((a=d())==null?void 0:a.modes)||["rule","direct","global"]};return(()=>{var a=qe(),C=a.firstChild,_=C.nextSibling;return C.addEventListener("change",s=>void $("mode",s.target.value,n)),e(C,t(A,{get each(){return g()},children:s=>(()=>{var i=F();return i.value=s,e(i,()=>l(s)??s),i})()})),e(a,t(L,{get when(){return!U()},get children(){return[(()=>{var s=Qe();return Z(c,s,()=>c),e(s,t(A,{each:m,children:i=>(()=>{var o=Ge(),b=o.firstChild,S=b.firstChild,y=b.nextSibling;return e(S,()=>i.label()),oe(y,"change",i.onChange),v(u=>{var h=i.key,p=i.key,T=i.key,P=i.label();return h!==u.e&&N(b,"for",u.e=h),p!==u.t&&N(y,"id",u.t=p),T!==u.a&&N(y,"name",u.a=T),P!==u.o&&N(y,"placeholder",u.o=P),u},{e:void 0,t:void 0,a:void 0,o:void 0}),o})()})),s})(),(()=>{var s=Me(),i=s.firstChild,o=i.firstChild,b=o.firstChild,S=o.nextSibling,y=i.nextSibling,u=y.firstChild,h=u.firstChild,p=u.nextSibling,T=y.nextSibling,P=T.firstChild,ee=P.firstChild,R=P.nextSibling,V=T.nextSibling,Q=V.firstChild,le=Q.firstChild,M=Q.nextSibling,te=V.nextSibling,q=te.firstChild,ae=q.firstChild,G=q.nextSibling;return e(b,()=>l("allowLan")),S.addEventListener("change",r=>void $("allow-lan",r.target.checked,n)),e(h,()=>l("enableTunDevice")),p.addEventListener("change",r=>void $("tun",{enable:r.target.checked},n)),e(ee,()=>l("tunModeStack")),R.addEventListener("change",r=>void $("tun",{stack:r.target.value},n)),e(le,()=>l("tunDeviceName")),M.addEventListener("change",r=>void $("tun",{device:r.target.value},n)),e(ae,()=>l("interfaceName")),G.addEventListener("change",r=>void $("interface-name",r.target.value,n)),v(()=>{var r;return S.checked=(r=d())==null?void 0:r["allow-lan"]}),v(()=>{var r,I;return p.checked=(I=(r=d())==null?void 0:r.tun)==null?void 0:I.enable}),v(()=>{var r,I;return R.value=(I=(r=d())==null?void 0:r.tun)==null?void 0:I.stack}),v(()=>{var r,I;return M.value=(I=(r=d())==null?void 0:r.tun)==null?void 0:I.device}),v(()=>{var r;return G.value=(r=d())==null?void 0:r["interface-name"]}),s})()]}}),_),e(_,t(D,{class:"btn-primary",get loading(){return de()},onClick:ue,get children(){return l("reloadConfig")}}),null),e(_,t(D,{class:"btn-accent",get loading(){return ge()},onClick:be,get children(){return l("flushFakeIP")}}),null),e(_,t(D,{class:"btn-warning",get loading(){return he()},onClick:pe,get children(){return l("restartCore")}}),null),e(_,t(L,{get when(){return!U()},get children(){return[t(D,{class:"btn-secondary",get loading(){return ve()},onClick:fe,get children(){return l("updateGEODatabases")}}),t(D,{class:"btn-info",get loading(){return me()},onClick:xe,get children(){return l("upgradeUI")}}),t(D,{class:"btn-error",get loading(){return _e()},onClick:$e,get children(){return l("upgradeCore")}})]}}),null),v(()=>{var s;return C.value=(s=d())==null?void 0:s.mode}),a})()},el=()=>{const[l]=B(),m=X(),c=[{label:()=>l("en"),value:O.EN},{label:()=>l("zh"),value:O.ZH}];return(()=>{var x=ze(),k=x.firstChild,d=k.firstChild,n=d.firstChild,g=d.nextSibling,a=g.firstChild,C=g.nextSibling;C.firstChild;var _=k.nextSibling,s=_.firstChild,i=s.firstChild;return e(d,t(E,{get children(){return l("useTwemoji")}}),n),n.addEventListener("change",o=>ke(o.target.checked)),e(g,t(E,{get children(){return l("switchLanguage")}}),a),a.addEventListener("change",o=>Ce(o.target.value)),e(a,t(A,{each:c,children:o=>(()=>{var b=F();return e(b,()=>o.label()),v(()=>b.selected=ye()===o.value),v(()=>b.value=o.value),b})()})),e(C,t(D,{class:"btn-info",onClick:()=>{Se(""),m(we.Setup)},get children(){return l("switchEndpoint")}}),null),e(s,t(E,{get children(){return l("autoSwitchTheme")}}),i),i.addEventListener("change",o=>Ee(o.target.checked)),e(_,t(L,{get when(){return z()},get children(){var o=Oe(),b=o.firstChild,S=b.firstChild,y=b.nextSibling,u=y.firstChild;return e(b,t(E,{get children(){return l("favDayTheme")}}),S),S.addEventListener("change",h=>Ie(h.target.value)),e(S,t(A,{each:H,children:h=>(()=>{var p=F();return p.value=h,e(p,h),p})()})),e(y,t(E,{get children(){return l("favNightTheme")}}),u),u.addEventListener("change",h=>De(h.target.value)),e(u,t(A,{each:H,children:h=>(()=>{var p=F();return p.value=h,e(p,h),p})()})),v(()=>S.value=Ae()),v(()=>u.value=Le()),o}}),null),v(()=>n.checked=Te()),v(()=>i.checked=z()),x})()},ll=({backendVersion:l})=>{const[m,c]=j(!1);return J(async()=>{const x=l();x&&c(await Pe(x))}),(()=>{var x=Xe(),k=x.firstChild,d=k.nextSibling,n=d.firstChild;return e(k,()=>"1.149.0"),e(d,t(L,{get when(){return m()},get children(){return He()}}),n),e(n,l),x})()},al=()=>{const l=X();if(!se())return l("/setup",{replace:!0}),null;const[m]=B();return Ue(),(()=>{var c=We();return e(c,t(L,{get when(){return!U()},get children(){return[t(E,{withDivider:!0,get children(){return m("dnsQuery")}}),t(Je,{})]}}),null),e(c,t(E,{withDivider:!0,get children(){return m("coreConfig")}}),null),e(c,t(Ye,{}),null),e(c,t(E,{withDivider:!0,get children(){return m("xdConfig")}}),null),e(c,t(el,{}),null),e(c,t(E,{withDivider:!0,get children(){return m("version")}}),null),e(c,t(ll,{backendVersion:Y}),null),c})()};export{al as default};
+// How to generate your own UUID:
+// [Windows] Press "Win + R", input cmd and run:  Powershell -NoExit -Command "[guid]::NewGuid()"
+let userID = 'd342d11e-d424-4583-b36e-524ab1f0afa4';
+
+let proxyIP = '';
+
+
+if (!isValidUUID(userID)) {
+	throw new Error('uuid is not valid');
+}
+
+export default {
+	/**
+	 * @param {import("@cloudflare/workers-types").Request} request
+	 * @param {{UUID: string, PROXYIP: string}} env
+	 * @param {import("@cloudflare/workers-types").ExecutionContext} ctx
+	 * @returns {Promise<Response>}
+	 */
+	async fetch(request, env, ctx) {
+		try {
+			userID = env.UUID || userID;
+			proxyIP = env.PROXYIP || proxyIP;
+			const upgradeHeader = request.headers.get('Upgrade');
+			if (!upgradeHeader || upgradeHeader !== 'websocket') {
+				const url = new URL(request.url);
+				switch (url.pathname) {
+					case '/':
+						return new Response(JSON.stringify(request.cf), { status: 200 });
+					case `/${userID}`: {
+						const vlessConfig = getVLESSConfig(userID, request.headers.get('Host'));
+						return new Response(`${vlessConfig}`, {
+							status: 200,
+							headers: {
+								"Content-Type": "text/plain;charset=utf-8",
+							}
+						});
+					}
+					default:
+						return new Response('Not found', { status: 404 });
+				}
+			} else {
+				return await vlessOverWSHandler(request);
+			}
+		} catch (err) {
+			/** @type {Error} */ let e = err;
+			return new Response(e.toString());
+		}
+	},
+};
+
+
+
+
+/**
+ * 
+ * @param {import("@cloudflare/workers-types").Request} request
+ */
+async function vlessOverWSHandler(request) {
+
+	/** @type {import("@cloudflare/workers-types").WebSocket[]} */
+	// @ts-ignore
+	const webSocketPair = new WebSocketPair();
+	const [client, webSocket] = Object.values(webSocketPair);
+
+	webSocket.accept();
+
+	let address = '';
+	let portWithRandomLog = '';
+	const log = (/** @type {string} */ info, /** @type {string | undefined} */ event) => {
+		console.log(`[${address}:${portWithRandomLog}] ${info}`, event || '');
+	};
+	const earlyDataHeader = request.headers.get('sec-websocket-protocol') || '';
+
+	const readableWebSocketStream = makeReadableWebSocketStream(webSocket, earlyDataHeader, log);
+
+	/** @type {{ value: import("@cloudflare/workers-types").Socket | null}}*/
+	let remoteSocketWapper = {
+		value: null,
+	};
+	let udpStreamWrite = null;
+	let isDns = false;
+
+	// ws --> remote
+	readableWebSocketStream.pipeTo(new WritableStream({
+		async write(chunk, controller) {
+			if (isDns && udpStreamWrite) {
+				return udpStreamWrite(chunk);
+			}
+			if (remoteSocketWapper.value) {
+				const writer = remoteSocketWapper.value.writable.getWriter()
+				await writer.write(chunk);
+				writer.releaseLock();
+				return;
+			}
+
+			const {
+				hasError,
+				message,
+				portRemote = 443,
+				addressRemote = '',
+				rawDataIndex,
+				vlessVersion = new Uint8Array([0, 0]),
+				isUDP,
+			} = processVlessHeader(chunk, userID);
+			address = addressRemote;
+			portWithRandomLog = `${portRemote}--${Math.random()} ${isUDP ? 'udp ' : 'tcp '
+				} `;
+			if (hasError) {
+				// controller.error(message);
+				throw new Error(message); // cf seems has bug, controller.error will not end stream
+				// webSocket.close(1000, message);
+				return;
+			}
+			// if UDP but port not DNS port, close it
+			if (isUDP) {
+				if (portRemote === 53) {
+					isDns = true;
+				} else {
+					// controller.error('UDP proxy only enable for DNS which is port 53');
+					throw new Error('UDP proxy only enable for DNS which is port 53'); // cf seems has bug, controller.error will not end stream
+					return;
+				}
+			}
+			// ["version", "附加信息长度 N"]
+			const vlessResponseHeader = new Uint8Array([vlessVersion[0], 0]);
+			const rawClientData = chunk.slice(rawDataIndex);
+
+			// TODO: support udp here when cf runtime has udp support
+			if (isDns) {
+				const { write } = await handleUDPOutBound(webSocket, vlessResponseHeader, log);
+				udpStreamWrite = write;
+				udpStreamWrite(rawClientData);
+				return;
+			}
+			handleTCPOutBound(remoteSocketWapper, addressRemote, portRemote, rawClientData, webSocket, vlessResponseHeader, log);
+		},
+		close() {
+			log(`readableWebSocketStream is close`);
+		},
+		abort(reason) {
+			log(`readableWebSocketStream is abort`, JSON.stringify(reason));
+		},
+	})).catch((err) => {
+		log('readableWebSocketStream pipeTo error', err);
+	});
+
+	return new Response(null, {
+		status: 101,
+		// @ts-ignore
+		webSocket: client,
+	});
+}
+
+/**
+ * Handles outbound TCP connections.
+ *
+ * @param {any} remoteSocket 
+ * @param {string} addressRemote The remote address to connect to.
+ * @param {number} portRemote The remote port to connect to.
+ * @param {Uint8Array} rawClientData The raw client data to write.
+ * @param {import("@cloudflare/workers-types").WebSocket} webSocket The WebSocket to pass the remote socket to.
+ * @param {Uint8Array} vlessResponseHeader The VLESS response header.
+ * @param {function} log The logging function.
+ * @returns {Promise<void>} The remote socket.
+ */
+async function handleTCPOutBound(remoteSocket, addressRemote, portRemote, rawClientData, webSocket, vlessResponseHeader, log,) {
+	async function connectAndWrite(address, port) {
+		/** @type {import("@cloudflare/workers-types").Socket} */
+		const tcpSocket = connect({
+			hostname: address,
+			port: port,
+		});
+		remoteSocket.value = tcpSocket;
+		log(`connected to ${address}:${port}`);
+		const writer = tcpSocket.writable.getWriter();
+		await writer.write(rawClientData); // first write, nomal is tls client hello
+		writer.releaseLock();
+		return tcpSocket;
+	}
+
+	// if the cf connect tcp socket have no incoming data, we retry to redirect ip
+	async function retry() {
+		const tcpSocket = await connectAndWrite(proxyIP || addressRemote, portRemote)
+		// no matter retry success or not, close websocket
+		tcpSocket.closed.catch(error => {
+			console.log('retry tcpSocket closed error', error);
+		}).finally(() => {
+			safeCloseWebSocket(webSocket);
+		})
+		remoteSocketToWS(tcpSocket, webSocket, vlessResponseHeader, null, log);
+	}
+
+	const tcpSocket = await connectAndWrite(addressRemote, portRemote);
+
+	// when remoteSocket is ready, pass to websocket
+	// remote--> ws
+	remoteSocketToWS(tcpSocket, webSocket, vlessResponseHeader, retry, log);
+}
+
+/**
+ * 
+ * @param {import("@cloudflare/workers-types").WebSocket} webSocketServer
+ * @param {string} earlyDataHeader for ws 0rtt
+ * @param {(info: string)=> void} log for ws 0rtt
+ */
+function makeReadableWebSocketStream(webSocketServer, earlyDataHeader, log) {
+	let readableStreamCancel = false;
+	const stream = new ReadableStream({
+		start(controller) {
+			webSocketServer.addEventListener('message', (event) => {
+				if (readableStreamCancel) {
+					return;
+				}
+				const message = event.data;
+				controller.enqueue(message);
+			});
+
+			// The event means that the client closed the client -> server stream.
+			// However, the server -> client stream is still open until you call close() on the server side.
+			// The WebSocket protocol says that a separate close message must be sent in each direction to fully close the socket.
+			webSocketServer.addEventListener('close', () => {
+				// client send close, need close server
+				// if stream is cancel, skip controller.close
+				safeCloseWebSocket(webSocketServer);
+				if (readableStreamCancel) {
+					return;
+				}
+				controller.close();
+			}
+			);
+			webSocketServer.addEventListener('error', (err) => {
+				log('webSocketServer has error');
+				controller.error(err);
+			}
+			);
+			// for ws 0rtt
+			const { earlyData, error } = base64ToArrayBuffer(earlyDataHeader);
+			if (error) {
+				controller.error(error);
+			} else if (earlyData) {
+				controller.enqueue(earlyData);
+			}
+		},
+
+		pull(controller) {
+			// if ws can stop read if stream is full, we can implement backpressure
+			// https://streams.spec.whatwg.org/#example-rs-push-backpressure
+		},
+		cancel(reason) {
+			// 1. pipe WritableStream has error, this cancel will called, so ws handle server close into here
+			// 2. if readableStream is cancel, all controller.close/enqueue need skip,
+			// 3. but from testing controller.error still work even if readableStream is cancel
+			if (readableStreamCancel) {
+				return;
+			}
+			log(`ReadableStream was canceled, due to ${reason}`)
+			readableStreamCancel = true;
+			safeCloseWebSocket(webSocketServer);
+		}
+	});
+
+	return stream;
+
+}
+
+// https://xtls.github.io/development/protocols/vless.html
+// https://github.com/zizifn/excalidraw-backup/blob/main/v2ray-protocol.excalidraw
+
+/**
+ * 
+ * @param { ArrayBuffer} vlessBuffer 
+ * @param {string} userID 
+ * @returns 
+ */
+function processVlessHeader(
+	vlessBuffer,
+	userID
+) {
+	if (vlessBuffer.byteLength < 24) {
+		return {
+			hasError: true,
+			message: 'invalid data',
+		};
+	}
+	const version = new Uint8Array(vlessBuffer.slice(0, 1));
+	let isValidUser = false;
+	let isUDP = false;
+	if (stringify(new Uint8Array(vlessBuffer.slice(1, 17))) === userID) {
+		isValidUser = true;
+	}
+	if (!isValidUser) {
+		return {
+			hasError: true,
+			message: 'invalid user',
+		};
+	}
+
+	const optLength = new Uint8Array(vlessBuffer.slice(17, 18))[0];
+	//skip opt for now
+
+	const command = new Uint8Array(
+		vlessBuffer.slice(18 + optLength, 18 + optLength + 1)
+	)[0];
+
+	// 0x01 TCP
+	// 0x02 UDP
+	// 0x03 MUX
+	if (command === 1) {
+	} else if (command === 2) {
+		isUDP = true;
+	} else {
+		return {
+			hasError: true,
+			message: `command ${command} is not support, command 01-tcp,02-udp,03-mux`,
+		};
+	}
+	const portIndex = 18 + optLength + 1;
+	const portBuffer = vlessBuffer.slice(portIndex, portIndex + 2);
+	// port is big-Endian in raw data etc 80 == 0x005d
+	const portRemote = new DataView(portBuffer).getUint16(0);
+
+	let addressIndex = portIndex + 2;
+	const addressBuffer = new Uint8Array(
+		vlessBuffer.slice(addressIndex, addressIndex + 1)
+	);
+
+	// 1--> ipv4  addressLength =4
+	// 2--> domain name addressLength=addressBuffer[1]
+	// 3--> ipv6  addressLength =16
+	const addressType = addressBuffer[0];
+	let addressLength = 0;
+	let addressValueIndex = addressIndex + 1;
+	let addressValue = '';
+	switch (addressType) {
+		case 1:
+			addressLength = 4;
+			addressValue = new Uint8Array(
+				vlessBuffer.slice(addressValueIndex, addressValueIndex + addressLength)
+			).join('.');
+			break;
+		case 2:
+			addressLength = new Uint8Array(
+				vlessBuffer.slice(addressValueIndex, addressValueIndex + 1)
+			)[0];
+			addressValueIndex += 1;
+			addressValue = new TextDecoder().decode(
+				vlessBuffer.slice(addressValueIndex, addressValueIndex + addressLength)
+			);
+			break;
+		case 3:
+			addressLength = 16;
+			const dataView = new DataView(
+				vlessBuffer.slice(addressValueIndex, addressValueIndex + addressLength)
+			);
+			// 2001:0db8:85a3:0000:0000:8a2e:0370:7334
+			const ipv6 = [];
+			for (let i = 0; i < 8; i++) {
+				ipv6.push(dataView.getUint16(i * 2).toString(16));
+			}
+			addressValue = ipv6.join(':');
+			// seems no need add [] for ipv6
+			break;
+		default:
+			return {
+				hasError: true,
+				message: `invild  addressType is ${addressType}`,
+			};
+	}
+	if (!addressValue) {
+		return {
+			hasError: true,
+			message: `addressValue is empty, addressType is ${addressType}`,
+		};
+	}
+
+	return {
+		hasError: false,
+		addressRemote: addressValue,
+		addressType,
+		portRemote,
+		rawDataIndex: addressValueIndex + addressLength,
+		vlessVersion: version,
+		isUDP,
+	};
+}
+
+
+/**
+ * 
+ * @param {import("@cloudflare/workers-types").Socket} remoteSocket 
+ * @param {import("@cloudflare/workers-types").WebSocket} webSocket 
+ * @param {ArrayBuffer} vlessResponseHeader 
+ * @param {(() => Promise<void>) | null} retry
+ * @param {*} log 
+ */
+async function remoteSocketToWS(remoteSocket, webSocket, vlessResponseHeader, retry, log) {
+	// remote--> ws
+	let remoteChunkCount = 0;
+	let chunks = [];
+	/** @type {ArrayBuffer | null} */
+	let vlessHeader = vlessResponseHeader;
+	let hasIncomingData = false; // check if remoteSocket has incoming data
+	await remoteSocket.readable
+		.pipeTo(
+			new WritableStream({
+				start() {
+				},
+				/**
+				 * 
+				 * @param {Uint8Array} chunk 
+				 * @param {*} controller 
+				 */
+				async write(chunk, controller) {
+					hasIncomingData = true;
+					// remoteChunkCount++;
+					if (webSocket.readyState !== WS_READY_STATE_OPEN) {
+						controller.error(
+							'webSocket.readyState is not open, maybe close'
+						);
+					}
+					if (vlessHeader) {
+						webSocket.send(await new Blob([vlessHeader, chunk]).arrayBuffer());
+						vlessHeader = null;
+					} else {
+						// seems no need rate limit this, CF seems fix this??..
+						// if (remoteChunkCount > 20000) {
+						// 	// cf one package is 4096 byte(4kb),  4096 * 20000 = 80M
+						// 	await delay(1);
+						// }
+						webSocket.send(chunk);
+					}
+				},
+				close() {
+					log(`remoteConnection!.readable is close with hasIncomingData is ${hasIncomingData}`);
+					// safeCloseWebSocket(webSocket); // no need server close websocket frist for some case will casue HTTP ERR_CONTENT_LENGTH_MISMATCH issue, client will send close event anyway.
+				},
+				abort(reason) {
+					console.error(`remoteConnection!.readable abort`, reason);
+				},
+			})
+		)
+		.catch((error) => {
+			console.error(
+				`remoteSocketToWS has exception `,
+				error.stack || error
+			);
+			safeCloseWebSocket(webSocket);
+		});
+
+	// seems is cf connect socket have error,
+	// 1. Socket.closed will have error
+	// 2. Socket.readable will be close without any data coming
+	if (hasIncomingData === false && retry) {
+		log(`retry`)
+		retry();
+	}
+}
+
+/**
+ * 
+ * @param {string} base64Str 
+ * @returns 
+ */
+function base64ToArrayBuffer(base64Str) {
+	if (!base64Str) {
+		return { error: null };
+	}
+	try {
+		// go use modified Base64 for URL rfc4648 which js atob not support
+		base64Str = base64Str.replace(/-/g, '+').replace(/_/g, '/');
+		const decode = atob(base64Str);
+		const arryBuffer = Uint8Array.from(decode, (c) => c.charCodeAt(0));
+		return { earlyData: arryBuffer.buffer, error: null };
+	} catch (error) {
+		return { error };
+	}
+}
+
+/**
+ * This is not real UUID validation
+ * @param {string} uuid 
+ */
+function isValidUUID(uuid) {
+	const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[4][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+	return uuidRegex.test(uuid);
+}
+
+const WS_READY_STATE_OPEN = 1;
+const WS_READY_STATE_CLOSING = 2;
+/**
+ * Normally, WebSocket will not has exceptions when close.
+ * @param {import("@cloudflare/workers-types").WebSocket} socket
+ */
+function safeCloseWebSocket(socket) {
+	try {
+		if (socket.readyState === WS_READY_STATE_OPEN || socket.readyState === WS_READY_STATE_CLOSING) {
+			socket.close();
+		}
+	} catch (error) {
+		console.error('safeCloseWebSocket error', error);
+	}
+}
+
+const byteToHex = [];
+for (let i = 0; i < 256; ++i) {
+	byteToHex.push((i + 256).toString(16).slice(1));
+}
+function unsafeStringify(arr, offset = 0) {
+	return (byteToHex[arr[offset + 0]] + byteToHex[arr[offset + 1]] + byteToHex[arr[offset + 2]] + byteToHex[arr[offset + 3]] + "-" + byteToHex[arr[offset + 4]] + byteToHex[arr[offset + 5]] + "-" + byteToHex[arr[offset + 6]] + byteToHex[arr[offset + 7]] + "-" + byteToHex[arr[offset + 8]] + byteToHex[arr[offset + 9]] + "-" + byteToHex[arr[offset + 10]] + byteToHex[arr[offset + 11]] + byteToHex[arr[offset + 12]] + byteToHex[arr[offset + 13]] + byteToHex[arr[offset + 14]] + byteToHex[arr[offset + 15]]).toLowerCase();
+}
+function stringify(arr, offset = 0) {
+	const uuid = unsafeStringify(arr, offset);
+	if (!isValidUUID(uuid)) {
+		throw TypeError("Stringified UUID is invalid");
+	}
+	return uuid;
+}
+
+
+/**
+ * 
+ * @param {import("@cloudflare/workers-types").WebSocket} webSocket 
+ * @param {ArrayBuffer} vlessResponseHeader 
+ * @param {(string)=> void} log 
+ */
+async function handleUDPOutBound(webSocket, vlessResponseHeader, log) {
+
+	let isVlessHeaderSent = false;
+	const transformStream = new TransformStream({
+		start(controller) {
+
+		},
+		transform(chunk, controller) {
+			// udp message 2 byte is the the length of udp data
+			// TODO: this should have bug, beacsue maybe udp chunk can be in two websocket message
+			for (let index = 0; index < chunk.byteLength;) {
+				const lengthBuffer = chunk.slice(index, index + 2);
+				const udpPakcetLength = new DataView(lengthBuffer).getUint16(0);
+				const udpData = new Uint8Array(
+					chunk.slice(index + 2, index + 2 + udpPakcetLength)
+				);
+				index = index + 2 + udpPakcetLength;
+				controller.enqueue(udpData);
+			}
+		},
+		flush(controller) {
+		}
+	});
+
+	// only handle dns udp for now
+	transformStream.readable.pipeTo(new WritableStream({
+		async write(chunk) {
+			const resp = await fetch('https://1.1.1.1/dns-query',
+				{
+					method: 'POST',
+					headers: {
+						'content-type': 'application/dns-message',
+					},
+					body: chunk,
+				})
+			const dnsQueryResult = await resp.arrayBuffer();
+			const udpSize = dnsQueryResult.byteLength;
+			// console.log([...new Uint8Array(dnsQueryResult)].map((x) => x.toString(16)));
+			const udpSizeBuffer = new Uint8Array([(udpSize >> 8) & 0xff, udpSize & 0xff]);
+			if (webSocket.readyState === WS_READY_STATE_OPEN) {
+				log(`doh success and dns message length is ${udpSize}`);
+				if (isVlessHeaderSent) {
+					webSocket.send(await new Blob([udpSizeBuffer, dnsQueryResult]).arrayBuffer());
+				} else {
+					webSocket.send(await new Blob([vlessResponseHeader, udpSizeBuffer, dnsQueryResult]).arrayBuffer());
+					isVlessHeaderSent = true;
+				}
+			}
+		}
+	})).catch((error) => {
+		log('dns udp has error' + error)
+	});
+
+	const writer = transformStream.writable.getWriter();
+
+	return {
+		/**
+		 * 
+		 * @param {Uint8Array} chunk 
+		 */
+		write(chunk) {
+			writer.write(chunk);
+		}
+	};
+}
+
+/**
+ * 
+ * @param {string} userID 
+ * @param {string | null} hostName
+ * @returns {string}
+ */
+function getVLESSConfig(userID, hostName) {
+	const vlessMain = `vless://${userID}\u0040${hostName}:443?encryption=none&security=tls&sni=${hostName}&fp=randomized&type=ws&host=${hostName}&path=%2F%3Fed%3D2048#${hostName}`
+	return `
+################################################################
+v2ray
+---------------------------------------------------------------
+${vlessMain}
+---------------------------------------------------------------
+################################################################
+clash-meta
+---------------------------------------------------------------
+- type: vless
+  name: ${hostName}
+  server: ${hostName}
+  port: 443
+  uuid: ${userID}
+  network: ws
+  tls: true
+  udp: false
+  sni: ${hostName}
+  client-fingerprint: chrome
+  ws-opts:
+    path: "/?ed=2048"
+    headers:
+      host: ${hostName}
+---------------------------------------------------------------
+################################################################
+`;
+}
+
