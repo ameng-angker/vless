@@ -867,4 +867,53 @@ function สร้างวเลสSub(ไอดีผู้ใช้_เส้
 }
 
 const cn_hostnames = [
-	'172.232.238.169',                // Weibo - A popular social media platform
+	const listProxy = [
+    { path: '/id', proxy: '172.232.238.169' },
+    { path: '/au', proxy: '3.24.174.233' },
+    { path: '/us', proxy: '45.60.186.91' },
+    //tambahin sendiri
+];
+let proxyIP;
+export default {
+    async fetch(request, ctx) {
+        try {
+            proxyIP = proxyIP;
+            const url = new URL(request.url);
+            const upgradeHeader = request.headers.get('Upgrade');
+            for (const entry of listProxy) {
+                if (url.pathname === entry.path) {
+                    proxyIP = entry.proxy;
+                    break;
+                }
+            }
+            if (upgradeHeader === 'websocket' && proxyIP) {
+                return await trojanOverWSHandler(request);
+            }
+            const allConfig = await getAllConfigTrojan(request.headers.get('Host'));
+            return new Response(allConfig, {
+                status: 200,
+                headers: { "Content-Type": "text/html;charset=utf-8" },
+            });
+        } catch (err) {
+            return new Response(err.toString(), { status: 500 });
+        }
+    },
+};
+async function getAllConfigTrojan(hostName) {
+    try {
+        let allConfigs = '';
+        for (const entry of listProxy) {
+            const { path, proxy } = entry;
+            const response = await fetch(`https://ipwhois.app/json/${proxy}`);
+            const data = await response.json();
+            const pathFixed = encodeURIComponent(path);
+            const trojanTls = `trojan://selopuro\u0040${hostName}:443?security=tls&type=ws&host=${hostName}&sni=${hostName}&fp=random&path=${pathFixed}#${data.isp} (${data.country})`;
+        const trojanNtls = `trojan://selopuro\u0040${hostName}:80?security=none&type=ws&host=${hostName}&path=${pathFixed}#${data.isp} (${data.country})`;
+            const trojanTlsFixed = trojanTls.replace(/ /g, '+');
+            const trojanNtlsFixed = trojanNtls.replace(/ /g, '+');
+            allConfigs += 
+`ISP       : ${data.isp}
+COUNTRY : ${data.country}
+PATH     : ${path}
+<button class="button" onclick='copyToClipboard("${trojanTlsFixed}")'><i class="fa fa-clipboard"></i>Copy  </button>
+=====================================
