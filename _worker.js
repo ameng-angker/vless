@@ -5,7 +5,7 @@ import { connect } from 'cloudflare:sockets';
 // [Windows] Press "Win + R", input cmd and run:  Powershell -NoExit -Command "[guid]::NewGuid()"
 let userID = 'd342d11e-d424-4583-b36e-524ab1f0afa4';
 
-const พร็อกซีไอพีs = ['cdn.xn--b6gac.eu.org', 'cdn-all.xn--b6gac.eu.org', 'workers.cloudflare.cyou'];
+const พร็อกซีไอพีs = ['51.79.254.182', 'https://ipdb.api.030101.xyz/?type=bestproxy&country=true', 'bestcf.onecf.eu.org', 'cfip.xxxxxxxx.tk', 'bestproxy.onecf.eu.org', 'proxy.xxxxxxxx.tk', 'acjp2.cloudflarest.link:2053', 'acsg.cloudflarest.link:2053', 'acsg3.cloudflarest.link:2053', 'cdn-b100.xn--b6gac.eu.org', 'cdn-all.xn--b6gac.eu.org', 'xn--b6gac.eu.org', '194.58.56.87', '129.150.37.203', '18.141.204.88', '202.10.42.30', '52.74.101.26', '8.219.98.13'];
 
 // if you want to use ipv6 or single พร็อกซีไอพี, please add comment at this line and remove comment at the next line
 let พร็อกซีไอพี = พร็อกซีไอพีs[Math.floor(Math.random() * พร็อกซีไอพีs.length)];
@@ -20,98 +20,427 @@ if (!isValidUUID(userID)) {
 	throw new Error('uuid is invalid');
 }
 
+function homePageHTML() {
+    return `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EDtunnel-rev - VLESS Proxy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            background: linear-gradient(135deg, #1d1f21 0%, #34495e 100%);
+            color: #ecf0f1;
+            overflow-x: hidden;
+        }
+
+        .sidebar {
+            width: 300px;
+            background: rgba(44, 62, 80, 0.9);
+            color: #ecf0f1;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        .sidebar h2 {
+            font-size: 24px;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .sidebar a {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #ecf0f1;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar a i {
+            margin-right: 15px;
+            font-size: 24px;
+            transition: transform 0.3s;
+        }
+
+        .sidebar a:hover {
+            color: #1abc9c;
+        }
+
+        .sidebar a:hover i {
+            transform: rotate(360deg);
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 50px;
+            background: linear-gradient(to right, #2c3e50, #34495e);
+            position: relative;
+        }
+
+        .main-content:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1), transparent);
+            pointer-events: none;
+            animation: pulse 5s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(0.9);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(0.9);
+            }
+        }
+
+        h1 {
+            font-size: 42px;
+            color: #ecf0f1;
+            text-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .content {
+            max-width: 800px;
+            width: 100%;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 2;
+        }
+
+        .content h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+            color: #1abc9c;
+        }
+
+        .content p {
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            padding: 15px;
+            font-size: 16px;
+            width: 100%;
+            max-width: 450px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #1abc9c;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #1abc9c;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(26, 188, 156, 0.5);
+            transition: all 0.3s ease, transform 0.2s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        button:active {
+            transform: translateY(3px);
+            box-shadow: 0 3px 10px rgba(26, 188, 156, 0.3);
+        }
+
+        button:hover {
+            background-color: #16a085;
+        }
+
+        button:hover::after {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: -15px;
+            bottom: -15px;
+            border-radius: 20px;
+            border: 2px solid rgba(26, 188, 156, 0.6);
+            opacity: 0;
+            animation: hover-effect 0.4s forwards;
+        }
+
+        @keyframes hover-effect {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+
+        .special-thanks {
+            margin-top: 50px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .special-thanks p {
+            margin-bottom: 15px;
+        }
+
+        .special-thanks a {
+            color: #1abc9c;
+            text-decoration: none;
+            font-weight: bold;
+            position: relative;
+            z-index: 2;
+            transition: color 0.3s ease;
+        }
+
+        .special-thanks a:hover {
+            color: #16a085;
+            text-shadow: 0 5px 15px rgba(26, 188, 156, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                padding: 15px 20px;
+                box-shadow: none;
+            }
+
+            .main-content {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .content {
+                padding: 20px;
+            }
+
+            .content h2 {
+                font-size: 24px;
+            }
+
+            input[type="text"] {
+                font-size: 14px;
+                padding: 12px;
+            }
+
+            button {
+                padding: 12px 25px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div>
+            <h2>Navigation</h2>
+            <a href="https://edt.us.kg" target="_blank"><i class="fas fa-info-circle"></i> Project Overview</a>
+            <a href="https://t.me/edtunrev" target="_blank"><i class="fab fa-telegram"></i> Telegram Group</a>
+        </div>
+        <div>
+            <a href="https://github.com/EDtunnel-rev/EDtunnel-rev" target="_blank"><i class="fab fa-github"></i> GitHub Repository</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1>EDtunnel-rev - The Best VLESS Proxy Based on Cloudflare Pages</h1>
+        <div class="content">
+            <h2>Welcome to EDtunnel-rev!</h2>
+            <p>This tool provides a robust and efficient way to use the VLESS proxy protocol using Cloudflare Pages. Enter your UUID below to generate a custom VLESS configuration page.</p>
+            <input type="text" id="uuidInput" placeholder="Enter your UUID here">
+            <button onclick="redirectToUUID()">Generate Configuration</button>
+
+            <script>
+                function redirectToUUID() {
+                    const uuid = document.getElementById('uuidInput').value.trim();
+                    if (uuid) {
+                        window.location.href = '/' + encodeURIComponent(uuid);
+                    } else {
+                        alert('Please enter a valid UUID!');
+                    }
+                }
+            </script>
+
+            <div class="special-thanks">
+                <h2>Special Thanks</h2>
+                <p>1. Contributors to this project, whether their branches were merged or not. Thank you, @rayhanbone, @kardus911, and others! (See them at <a href="https://github.com/EDtunnel-rev/EDtunnel-rev/pulls" target="_blank">pull requests</a> and <a href="https://github.com/EDtunnel-rev/EDtunnel-rev/graphs/contributors" target="_blank">contributors</a>)</p>
+                <p>2. Everyone who has forked, starred, or watched this repository. (Check out the <a href="https://github.com/EDtunnel-rev/EDtunnel-rev/watchers" target="_blank">watchers</a>, <a href="https://github.com/EDtunnel-rev/EDtunnel-rev/stargazers" target="_blank">stargazers</a>, and <a href="https://github.com/EDtunnel-rev/EDtunnel-rev/forks" target="_blank">forks</a>)</p>
+                <p>3. Special recognition to the community from linux.do for their support and contributions to this repository.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
+    `;
+}
+
+
+
 export default {
-	/**
-	 * @param {import("@cloudflare/workers-types").Request} request
-	 * @param {{UUID: string, พร็อกซีไอพี: string, DNS_RESOLVER_URL: string, NODE_ID: int, API_HOST: string, API_TOKEN: string}} env
-	 * @param {import("@cloudflare/workers-types").ExecutionContext} ctx
-	 * @returns {Promise<Response>}
-	 */
-	async fetch(request, env, ctx) {
-		// uuid_validator(request);
-		try {
-			userID = env.UUID || userID;
-			พร็อกซีไอพี = env.PROXYIP || พร็อกซีไอพี;
-			dohURL = env.DNS_RESOLVER_URL || dohURL;
-			let userID_Path = userID;
-			if (userID.includes(',')) {
-				userID_Path = userID.split(',')[0];
-			}
-			const upgradeHeader = request.headers.get('Upgrade');
-			if (!upgradeHeader || upgradeHeader !== 'websocket') {
-				const url = new URL(request.url);
-				switch (url.pathname) {
-					case `/cf`: {
-						return new Response(JSON.stringify(request.cf, null, 4), {
-							status: 200,
-							headers: {
-								"Content-Type": "application/json;charset=utf-8",
-							},
-						});
-					}
-					case `/${userID_Path}`: {
-						const วเลสConfig = getวเลสConfig(userID, request.headers.get('Host'));
-						return new Response(`${วเลสConfig}`, {
-							status: 200,
-							headers: {
-								"Content-Type": "text/html; charset=utf-8",
-							}
-						});
-					};
-					case `/sub/${userID_Path}`: {
-						const url = new URL(request.url);
-						const searchParams = url.searchParams;
-						const วเลสSubConfig = สร้างวเลสSub(userID, request.headers.get('Host'));
-						// Construct and return response object
-						return new Response(btoa(วเลสSubConfig), {
-							status: 200,
-							headers: {
-								"Content-Type": "text/plain;charset=utf-8",
-							}
-						});
-					};
-					case `/bestip/${userID_Path}`: {
-						const headers = request.headers;
-						const url = `https://sub.xf.free.hr/auto?host=${request.headers.get('Host')}&uuid=${userID}&path=/`;
-						const bestSubConfig = await fetch(url, { headers: headers });
-						return bestSubConfig;
-					};
-					default:
-						// return new Response('Not found', { status: 404 });
-						// For any other path, reverse proxy to 'ramdom website' and return the original response, caching it in the process
-						const randomHostname = cn_hostnames[Math.floor(Math.random() * cn_hostnames.length)];
-						const newHeaders = new Headers(request.headers);
-						newHeaders.set('cf-connecting-ip', '1.2.3.4');
-						newHeaders.set('x-forwarded-for', '1.2.3.4');
-						newHeaders.set('x-real-ip', '1.2.3.4');
-						newHeaders.set('referer', 'https://www.google.com/search?q=edtunnel');
-						// Use fetch to proxy the request to 15 different domains
-						const proxyUrl = 'https://' + randomHostname + url.pathname + url.search;
-						let modifiedRequest = new Request(proxyUrl, {
-							method: request.method,
-							headers: newHeaders,
-							body: request.body,
-							redirect: 'manual',
-						});
-						const proxyResponse = await fetch(modifiedRequest, { redirect: 'manual' });
-						// Check for 302 or 301 redirect status and return an error response
-						if ([301, 302].includes(proxyResponse.status)) {
-							return new Response(`Redirects to ${randomHostname} are not allowed.`, {
-								status: 403,
-								statusText: 'Forbidden',
-							});
-						}
-						// Return the response from the proxy server
-						return proxyResponse;
-				}
-			} else {
-				return await วเลสOverWSHandler(request);
-			}
-		} catch (err) {
-			/** @type {Error} */ let e = err;
-			return new Response(e.toString());
-		}
-	},
+    /**
+     * @param {import("@cloudflare/workers-types").Request} request
+     * @param {{UUID: string, พร็อกซีไอพี: string, DNS_RESOLVER_URL: string, NODE_ID: int, API_HOST: string, API_TOKEN: string}} env
+     * @param {import("@cloudflare/workers-types").ExecutionContext} ctx
+     * @returns {Promise<Response>}
+     */
+    async fetch(request, env, ctx) {
+        try {
+            userID = env.UUID || userID;
+            พร็อกซีไอพี = env.PROXYIP || พร็อกซีไอพี;
+            dohURL = env.DNS_RESOLVER_URL || dohURL;
+            let userID_Path = userID;
+            if (userID.includes(',')) {
+                userID_Path = userID.split(',')[0];
+            }
+            const upgradeHeader = request.headers.get('Upgrade');
+            
+            // 检查请求路径
+            const url = new URL(request.url);
+            
+            // 检查是否为根路径的直接访问
+            if (url.pathname === '/') {
+                return new Response(homePageHTML(), {
+                    status: 200,
+                    headers: {
+                        "Content-Type": "text/html; charset=utf-8",
+                    },
+                });
+            }
+            
+            // 检查是否为 WebSocket 升级请求
+            if (!upgradeHeader || upgradeHeader !== 'websocket') {
+                switch (url.pathname) {
+                    case `/cf`: {
+                        // 返回请求的 Cloudflare 对象信息
+                        return new Response(JSON.stringify(request.cf, null, 4), {
+                            status: 200,
+                            headers: {
+                                "Content-Type": "application/json;charset=utf-8",
+                            },
+                        });
+                    }
+                    case `/${userID_Path}`: {
+                        // 返回生成的 vless 配置信息
+                        const วเลสConfig = getวเลสConfig(userID, request.headers.get('Host'));
+                        return new Response(`${วเลสConfig}`, {
+                            status: 200,
+                            headers: {
+                                "Content-Type": "text/html; charset=utf-8",
+                            }
+                        });
+                    }
+                    case `/sub/${userID_Path}`: {
+                        // 返回 vless 订阅信息
+                        const วเลสSubConfig = สร้างวเลสSub(userID, request.headers.get('Host'));
+                        return new Response(btoa(วเลสSubConfig), {
+                            status: 200,
+                            headers: {
+                                "Content-Type": "text/plain;charset=utf-8",
+                            }
+                        });
+                    }
+                    case `/bestip/${userID_Path}`: {
+                        // 请求最佳 IP 地址配置并返回
+                        const headers = request.headers;
+                        const url = `https://sub.xf.free.hr/auto?host=${request.headers.get('Host')}&uuid=${userID}&path=/`;
+                        const bestSubConfig = await fetch(url, { headers: headers });
+                        return bestSubConfig;
+                    }
+                    default:
+                        // 对于其他路径，进行反向代理请求到随机网站
+                        const randomHostname = cn_hostnames[Math.floor(Math.random() * cn_hostnames.length)];
+                        const newHeaders = new Headers(request.headers);
+                        newHeaders.set('cf-connecting-ip', '1.2.3.4');
+                        newHeaders.set('x-forwarded-for', '1.2.3.4');
+                        newHeaders.set('x-real-ip', '1.2.3.4');
+                        newHeaders.set('referer', 'https://www.google.com/search?q=edtunnel');
+                        
+                        // 构造代理请求
+                        const proxyUrl = 'https://' + randomHostname + url.pathname + url.search;
+                        let modifiedRequest = new Request(proxyUrl, {
+                            method: request.method,
+                            headers: newHeaders,
+                            body: request.body,
+                            redirect: 'manual',
+                        });
+                        
+                        // 发送代理请求并处理重定向
+                        const proxyResponse = await fetch(modifiedRequest, { redirect: 'manual' });
+                        if ([301, 302].includes(proxyResponse.status)) {
+                            return new Response(`Redirects to ${randomHostname} are not allowed.`, {
+                                status: 403,
+                                statusText: 'Forbidden',
+                            });
+                        }
+                        
+                        // 返回代理服务器的响应
+                        return proxyResponse;
+                }
+            } else {
+                // 处理 WebSocket 请求
+                return await วเลสOverWSHandler(request);
+            }
+        } catch (err) {
+            /** @type {Error} */ let e = err;
+            return new Response(e.toString());
+        }
+    },
 };
 
 export async function uuid_validator(request) {
@@ -699,7 +1028,7 @@ const ed = 'RUR0dW5uZWw=';
  * @returns {string}
  */
 function getวเลสConfig(userIDs, hostName) {
-	const commonUrlPart = `:443?encryption=none&security=tls&sni=${hostName}&fp=randomized&type=ws&host=${hostName}&path=%2F%3Fed%3D2048#${hostName}`;
+	const commonUrlPart = `:443?encryption=none&security=tls&sni=${hostName}&fp=randomized&type=ws&host=${hostName}&path=%22F%3Fed%3D2048#${hostName}`;
 	const hashSeparator = "################################################################";
 
 	// Split the userIDs into an array
@@ -725,12 +1054,11 @@ ${วเลสSec}
 	const clash_link = `https://api.v1.mk/sub?target=clash&url=${encodeURIComponent(sublink)}&insert=false&emoji=true&list=false&tfo=false&scv=true&fdn=false&sort=false&new_name=true`;
 	// Prepare header string
 	const header = `
-<p align='center'><img src='https://cloudflare-ipfs.com/ipfs/bafybeigd6i5aavwpr6wvnwuyayklq3omonggta4x2q7kpmgafj357nkcky' alt='图片描述' style='margin-bottom: -50px;'>
-<b style='font-size: 15px;'>Welcome! This function generates configuration for วเลส protocol. If you found this useful, please check our GitHub project for more:</b>
-<b style='font-size: 15px;'>欢迎！这是生成 วเลส 协议的配置。如果您发现这个项目很好用，请查看我们的 GitHub 项目给我一个star：</b>
-<a href='https://github.com/3Kmfi6HP/EDtunnel' target='_blank'>EDtunnel - https://github.com/3Kmfi6HP/EDtunnel</a>
-<iframe src='https://ghbtns.com/github-btn.html?user=USERNAME&repo=REPOSITORY&type=star&count=true&size=large' frameborder='0' scrolling='0' width='170' height='30' title='GitHub'></iframe>
-<a href='//${hostName}/sub/${userIDArray[0]}' target='_blank'>วเลส 节点订阅连接</a>
+<b style='font-size: 15px;'>Welcome! This function generates configuration for vless protocol. If you found this useful, please check our GitHub project for more:</b>
+<b style='font-size: 15px;'>欢迎！这是生成vless协议的配置。如果您发现这个项目很好用，请查看我们的 GitHub 项目给我一个star：</b>
+<a href='https://github.com/EDtunnel-rev/EDtunnel-rev' target='_blank'>EDtunnel-rev - https://github.com/EDtunnel-rev/EDtunnel-rev</a>
+<iframe src='https://ghbtns.com/github-btn.html?user=EDtunnel-rev&repo=EDtunnel-rev&type=star&count=true&size=large' frameborder='0' scrolling='0' width='170' height='30' title='GitHub'></iframe>
+<a href='//${hostName}/sub/${userIDArray[0]}' target='_blank'>vless节点订阅连接</a>
 <a href='clash://install-config?url=${encodeURIComponent(`https://${hostName}/sub/${userIDArray[0]}?format=clash`)}}' target='_blank'>Clash for Windows 节点订阅连接</a>
 <a href='${clash_link}' target='_blank'>Clash 节点订阅连接</a>
 <a href='${subbestip}' target='_blank'>优选IP自动节点订阅</a>
@@ -741,71 +1069,292 @@ ${วเลสSec}
 
 	// HTML Head with CSS and FontAwesome library
 	const htmlHead = `
-  <head>
-	<title>EDtunnel: วเลส configuration</title>
-	<meta name='description' content='This is a tool for generating วเลส protocol configurations. Give us a star on GitHub https://github.com/3Kmfi6HP/EDtunnel if you found it useful!'>
-	<meta name='keywords' content='EDtunnel, cloudflare pages, cloudflare worker, severless'>
+<head>
+	<title>EDtunnel: VLESS Configuration</title>
+	<meta name='description' content='This is a tool for generating VLESS protocol configurations. Give us a star on GitHub https://github.com/EDtunnel-rev/EDtunnel-rev if you found it useful!'>
+	<meta name='keywords' content='EDtunnel, Cloudflare Pages, Cloudflare Worker, Severless'>
 	<meta name='viewport' content='width=device-width, initial-scale=1'>
-	<meta property='og:site_name' content='EDtunnel: วเลส configuration' />
+	<meta property='og:site_name' content='EDtunnel: VLESS Configuration' />
 	<meta property='og:type' content='website' />
-	<meta property='og:title' content='EDtunnel - วเลส configuration and subscribe output' />
-	<meta property='og:description' content='Use cloudflare pages and worker severless to implement วเลส protocol' />
+	<meta property='og:title' content='EDtunnel-rev - VLESS Configuration and Subscribe Output' />
+	<meta property='og:description' content='Use Cloudflare Pages and Worker Severless to implement VLESS protocol' />
 	<meta property='og:url' content='https://${hostName}/' />
 	<meta property='og:image' content='https://api.qrserver.com/v1/create-qr-code/?size=500x500&data=${encodeURIComponent(`วเลส://${userIDs.split(",")[0]}@${hostName}${commonUrlPart}`)}' />
 	<meta name='twitter:card' content='summary_large_image' />
-	<meta name='twitter:title' content='EDtunnel - วเลส configuration and subscribe output' />
-	<meta name='twitter:description' content='Use cloudflare pages and worker severless to implement วเลส protocol' />
+	<meta name='twitter:title' content='EDtunnel - VLESS Configuration and Subscribe Output' />
+	<meta name='twitter:description' content='Use Cloudflare Pages and Worker Severless to implement VLESS protocol' />
 	<meta name='twitter:url' content='https://${hostName}/' />
 	<meta name='twitter:image' content='https://cloudflare-ipfs.com/ipfs/bafybeigd6i5aavwpr6wvnwuyayklq3omonggta4x2q7kpmgafj357nkcky' />
 	<meta property='og:image:width' content='1500' />
 	<meta property='og:image:height' content='1500' />
-
 	<style>
-	body {
-	  font-family: Arial, sans-serif;
-	  background-color: #f0f0f0;
-	  color: #333;
-	  padding: 10px;
-	}
-
-	a {
-	  color: #1a0dab;
-	  text-decoration: none;
-	}
-	img {
-	  max-width: 100%;
-	  height: auto;
-	}
-
-	pre {
-	  white-space: pre-wrap;
-	  word-wrap: break-word;
-	  background-color: #fff;
-	  border: 1px solid #ddd;
-	  padding: 15px;
-	  margin: 10px 0;
-	}
-	/* Dark mode */
-	@media (prefers-color-scheme: dark) {
-	  body {
-		background-color: #333;
-		color: #f0f0f0;
-	  }
-
-	  a {
-		color: #9db4ff;
-	  }
-
-	  pre {
-		background-color: #282a36;
-		border-color: #6272a4;
-	  }
-	}
+		body {
+			font-family: 'Roboto', sans-serif;
+			background-color: var(--background-color, #f0f0f0);
+			color: var(--text-color, #333);
+			padding: 20px;
+			margin: 0;
+			transition: all 0.3s ease;
+		}
+		a {
+			color: var(--link-color, #1a0dab);
+			text-decoration: none;
+			transition: color 0.3s;
+		}
+		a:hover {
+			color: var(--link-hover-color, #1a0dab);
+		}
+		img {
+			max-width: 100%;
+			height: auto;
+			border-radius: 8px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		}
+		pre {
+			white-space: pre-wrap;
+			word-wrap: break-word;
+			background-color: var(--pre-background-color, #fff);
+			border: 1px solid var(--pre-border-color, #ddd);
+			padding: 20px;
+			margin: 20px 0;
+			border-radius: 10px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+			color: var(--pre-text-color, #333);
+			font-size: 1rem;
+		}
+		h1, h2, h3, h4, h5, h6 {
+			color: var(--header-color, #1a0dab);
+			text-shadow: var(--header-shadow, none);
+			font-family: 'Orbitron', sans-serif;
+		}
+		button {
+			background-color: var(--button-background-color, #1a0dab);
+			color: var(--button-text-color, white);
+			border: none;
+			padding: 10px 20px;
+			font-size: 1rem;
+			cursor: pointer;
+			transition: background-color 0.3s, transform 0.3s;
+			border-radius: 5px;
+		}
+		button:hover {
+			background-color: var(--button-hover-background-color, #1a0dab);
+			transform: translateY(-2px);
+		}
+		.container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 20px;
+			background: rgba(255, 255, 255, 0.05);
+			border-radius: 10px;
+			box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+			backdrop-filter: blur(5px);
+			-webkit-backdrop-filter: blur(5px);
+			border: 1px solid rgba(255, 255, 255, 0.1);
+		}
+		.theme-button {
+			margin: 10px;
+			cursor: pointer;
+		}
+		.language-button {
+			margin: 5px;
+			cursor: pointer;
+		}
+		/* Dark mode */
+		.dark {
+			--background-color: #0a0f1c;
+			--text-color: #e0e6f1;
+			--link-color: #1abc9c;
+			--link-hover-color: #16a085;
+			--pre-background-color: #1b2735;
+			--pre-border-color: #34495e;
+			--pre-text-color: #c8d6e5;
+			--header-color: #1abc9c;
+			--header-shadow: 0 0 10px #1abc9c, 0 0 20px #1abc9c, 0 0 30px #1abc9c;
+			--button-background-color: #1abc9c;
+			--button-hover-background-color: #16a085;
+			--button-text-color: #0a0f1c;
+		}
+		/* Gold mode */
+		.gold {
+			--background-color: #1f1f1f;
+			--text-color: #d4af37;
+			--link-color: #ffd700;
+			--link-hover-color: #ffa500;
+			--pre-background-color: #333;
+			--pre-border-color: #555;
+			--pre-text-color: #ffdd44;
+			--header-color: #ffd700;
+			--header-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 30px #ffd700;
+			--button-background-color: #ffd700;
+			--button-hover-background-color: #ffdd44;
+			--button-text-color: #333;
+		}
+		/* Purple mode */
+		.purple {
+			--background-color: #1a0033;
+			--text-color: #d9b3ff;
+			--link-color: #c71585;
+			--link-hover-color: #d02090;
+			--pre-background-color: #330066;
+			--pre-border-color: #663399;
+			--pre-text-color: #e6e6fa;
+			--header-color: #ba55d3;
+			--header-shadow: 0 0 10px #ba55d3, 0 0 20px #ba55d3, 0 0 30px #ba55d3;
+			--button-background-color: #ba55d3;
+			--button-hover-background-color: #dda0dd;
+			--button-text-color: #fff;
+		}
+		/* Modal styles */
+		.modal {
+			display: none;
+			position: fixed;
+			z-index: 1;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			background-color: rgba(0, 0, 0, 0.7);
+			padding-top: 60px;
+		}
+		.modal-content {
+			background-color: #fefefe;
+			margin: 5% auto;
+			padding: 20px;
+			border: 1px solid #888;
+			width: 80%;
+			max-width: 600px;
+			border-radius: 10px;
+			box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+		}
+		.close {
+			color: #aaa;
+			float: right;
+			font-size: 28px;
+			font-weight: bold;
+		}
+		.close:hover,
+		.close:focus {
+			color: black;
+			text-decoration: none;
+			cursor: pointer;
+		}
+		.modal-button {
+			display: block;
+			width: 100%;
+			background-color: #1abc9c;
+			color: white;
+			border: none;
+			padding: 15px;
+			font-size: 1.1rem;
+			cursor: pointer;
+			margin-top: 20px;
+			border-radius: 5px;
+			transition: background-color 0.3s;
+		}
+		.modal-button:hover {
+			background-color: #16a085;
+		}
 	</style>
-
+	<!-- Add Google Fonts -->
+	<link href='https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;700&display=swap' rel='stylesheet'>
 	<!-- Add FontAwesome library -->
 	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
-  </head>
+	<script>
+		// Language and Theme handling
+		let currentTheme = localStorage.getItem('theme') || 'light';
+		let currentLanguage = navigator.language || 'en';
+		const themeButtonMapping = {
+			light: "default",
+			dark: "dark",
+			gold: "gold",
+			purple: "purple"
+		};
+		document.addEventListener('DOMContentLoaded', function() {
+			document.body.classList.add(currentTheme);
+
+			const languageButtons = document.querySelectorAll('.language-button');
+			languageButtons.forEach(button => {
+				button.addEventListener('click', function() {
+					const language = this.dataset.language;
+					currentLanguage = language;
+					updateLanguage(language);
+				});
+			});
+
+			const themeButtons = document.querySelectorAll('.theme-button');
+			themeButtons.forEach(button => {
+				button.addEventListener('click', function() {
+					const theme = this.dataset.theme;
+					changeTheme(theme);
+				});
+			});
+
+			const modal = document.getElementById('myModal');
+			const closeBtn = document.getElementsByClassName('close')[0];
+			const agreeButton = document.getElementById('agreeButton');
+			const agreementCheckbox = document.getElementById('agreementCheckbox');
+
+			modal.style.display = 'block';
+			agreementCheckbox.addEventListener('change', function() {
+				agreeButton.disabled = !this.checked;
+			});
+			agreeButton.addEventListener('click', function() {
+				modal.style.display = 'none';
+			});
+			closeBtn.addEventListener('click', function() {
+				modal.style.display = 'none';
+			});
+			window.onclick = function(event) {
+				if (event.target == modal) {
+					modal.style.display = 'none';
+				}
+			};
+		});
+
+		function changeTheme(theme) {
+			document.body.className = theme;
+			localStorage.setItem('theme', theme);
+		}
+
+		function updateLanguage(language) {
+			// Language data
+			const languages = {
+				en: {
+					title: "User Agreement",
+					terms: "Before using this tool, please read and agree to the following terms...",
+					agree: "I agree to the terms and conditions"
+				},
+				zh: {
+					title: "用户协议",
+					terms: "在使用此工具之前，请阅读并同意以下条款...",
+					agree: "我同意条款和条件"
+				},
+				fr: {
+					title: "Accord de l'utilisateur",
+					terms: "Avant d'utiliser cet outil, veuillez lire et accepter les conditions suivantes...",
+					agree: "J'accepte les termes et conditions"
+				},
+				ja: {
+					title: "ユーザー同意書",
+					terms: "このツールを使用する前に、次の条件を読んで同意してください...",
+					agree: "利用規約に同意します"
+				},
+				ko: {
+					title: "사용자 동의서",
+					terms: "이 도구를 사용하기 전에 다음 이용 약관을 읽고 동의하십시오...",
+					agree: "이용 약관에 동의합니다"
+				}
+			};
+			const selectedLanguage = languages[language] || languages.en;
+			document.querySelector('.modal-content h2').textContent = selectedLanguage.title;
+			document.querySelector('.modal-content p').textContent = selectedLanguage.terms;
+			document.querySelector('#agreeButton').textContent = selectedLanguage.agree;
+		}
+	</script>
+</head>
+
   `;
 
 	// Join output with newlines, wrap inside <html> and <body>
@@ -813,6 +1362,40 @@ ${วเลสSec}
   <html>
   ${htmlHead}
   <body>
+<body>
+	<!-- Modal -->
+	<div id="myModal" class="modal">
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<h2>User Agreement</h2>
+			<p>Before using this tool, please read and agree to the following terms...</p>
+			<ol>
+				<li><strong>Compliance with Laws:</strong> You agree to use this tool in full compliance with all local, national, and international laws and regulations.</li>
+				<li><strong>No Misuse:</strong> You agree not to misuse this tool for any illegal, unethical, or immoral activities. This includes, but is not limited to, using it to transmit or facilitate the transmission of unwholesome, harmful, or offensive content.</li>
+				<li><strong>Responsibility Disclaimer:</strong> All actions taken using this tool are your own responsibility. The creators and contributors of this project, including the GitHub account <a href="https://github.com/EDtunnel-rev" target="_blank">EDtunnel-rev</a>, are not aware of or responsible for how you choose to use this tool.</li>
+				<li><strong>No Liability:</strong> The creators and contributors of this project are not liable for any consequences resulting from your use of this tool, including but not limited to legal, financial, or reputational damages.</li>
+				<li><strong>Non-affiliation:</strong> This tool is provided independently and is not affiliated with or endorsed by any organization, government, or corporate entity.</li>
+				<li><strong>Open Source Contributions:</strong> This project is contributed by the GitHub account <a href="https://github.com/EDtunnel-rev" target="_blank">EDtunnel-rev</a>. The actual controller of this account is Satdog, whose official website is <a href="https://satdog.us.kg" target="_blank">https://satdog.us.kg</a>. Satdog's GitHub official account is <a href="https://github.com/EXEthereum" target="_blank">EXEthereum</a>, with the official page at <a href="https://github.com/EXEthereum" target="_blank">https://github.com/EXEthereum</a>.</li>
+				<li><strong>Independence of the Author:</strong> The author of this project is not aware of and is not responsible for how this tool is used. The author does not endorse or condone any particular use case for this tool.</li>
+				<li><strong>Amendments:</strong> The terms of this agreement may be updated or changed at any time, and it is your responsibility to stay informed of such changes by reviewing the agreement periodically.</li>
+			</ol>
+			<p>Please confirm your agreement to these terms by checking the box below and clicking "Agree".</p>
+			<label><input type="checkbox" id="agreementCheckbox"> I agree to the terms and conditions</label>
+			<button id="agreeButton" class="modal-button" disabled>Agree</button>
+		</div>
+	</div>
+
+	<div class="container">
+		<h1>Welcome to EDtunnel: VLESS Configuration</h1>
+		<p>Generate your VLESS protocol configuration with ease and efficiency. This tool is powered by Cloudflare Pages and Worker Severless technology to deliver seamless performance.</p>
+		
+		<!-- Theme and Language Switcher -->
+		<div class="theme-switcher">
+			<button class="theme-button" data-theme="light">Light</button>
+			<button class="theme-button" data-theme="dark">Dark</button>
+			<button class="theme-button" data-theme="gold">Gold</button>
+			<button class="theme-button" data-theme="purple">Purple</button>
+		</div>
   <pre style='background-color: transparent; border: none;'>${header}</pre>
   <pre>${output}</pre>
   </body>
