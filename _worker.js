@@ -868,6 +868,3 @@ function สร้างวเลสSub(ไอดีผู้ใช้_เส้
 
 const cn_hostnames = [
 	'172.232.238.169',                // Weibo - A popular social media platform
-	'3.24.174.233',            // Baidu - The largest search engine in China
-	'45.60.186.91',               // QQ - A widely used instant messaging platform
-	
